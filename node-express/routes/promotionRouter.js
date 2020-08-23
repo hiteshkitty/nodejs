@@ -1,51 +1,51 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const dishRouter = express.Router();
+const promotionRouter = express.Router();
 
-dishRouter.use(bodyParser.json());
+promotionRouter.use(bodyParser.json());
 
-dishRouter.route('/')
+promotionRouter.route('/')
 .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     next();
 })
 .get( (req, res, next) => {
-    res.end("We will send you the dishes" + req.params.dishId );
+    res.end("We will send you the promotions" + req.params.promotionId );
 })
 .post( (req, res, next) => {
     res.statusCode = 201;
-    res.end("We will create your dishes");
+    res.end("We will create your promotions");
 })
 .put( (req, res, next) => {
     res.statusCode = 200;
-    res.end("We will update your dishes");
+    res.end("We will update your promotions");
 })
 .delete( (req, res, next) => {
     res.statusCode = 204;
-    res.end("We will delete your dishes");
+    res.end("We will delete your promotions");
 });
 
-dishRouter.route('/:dishId')
+promotionRouter.route('/:promotionId')
 .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     next();
 })
 .get( (req, res, next) => {
-    res.end("We will send you the dishes for " + req.params.dishId );
+    res.end("We will send you the promotions for " + req.params.promotionId );
 })
 .post( (req, res, next) => {
     res.statusCode = 201;
-    res.end("We will create your dishes for " + req.params.dishId );
+    res.end("We will create your promotions for " + req.params.promotionId );
 })
 .put( (req, res, next) => {
     res.statusCode = 200;
-    res.end("We will update your dishes for " + req.params.dishId );
+    res.end("We will update your promotions for " + req.params.promotionId );
 })
 .delete( (req, res, next) => {
     res.statusCode = 204;
-    res.end("We will delete your dishes for " + req.params.dishId );
+    res.end("We will delete your promotions for " + req.params.promotionId );
 });
 
-module.exports = dishRouter;
+module.exports = promotionRouter;
